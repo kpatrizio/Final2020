@@ -28,10 +28,80 @@ $H_A$ The Alternative Hypothesis is that among the target population in each of 
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method. Discuss what data manipulations may be needed for example subsetting or other binning procedures and what sort of graphical displays and inferential tools will be used!-->
 
+Every question is of a Cat~cat type.  
+
 # Results
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
 
+
+```{r}
+DataF=filter(FinalData,sex=="gal")
+barchartGC(~infected + treatment,data=DataF)
+barchartGC(~infected + treatment,data=DataF, type="percent", main="gals")
+
+```
+
+In the frequency bar chart above, titled gals, it appears that the females who had COVID those who took the drug were less effected with the virus, than those females who did not take the drug.  Those who did not have COVID appear to not be effected whether they took the drugh or didn't take the drug. 
+
+As we observe the percentage bar chart above, titled gals, it appears that similar to the frequency chart, that those females who had the virus, the females who took the drug were less effected than those who didn't take the drug and those females who didn't have the drug.
+
+```{r}
+DataM=filter(FinalData,sex=="guy")
+barchartGC(~infected + treatment,data=DataM)
+barchartGC(~infected + treatment,data=DataM, type="percent", main="guys")
+
+```
+
+In the above frequency bar chart, for guys, it appears that the males who had COVID and took the drug were effected more than those males who did not take the drug. We also observe that those males who did not have the virus who did or did not take the drug were equally almost equally non-effected.  
+
+Likewise when we observe the bar chart by percentage above for guys, it appears that those males who had the virus and took the drug were more effected with the Virus than those who didn't take the drug, and those who didn't have the virus, were almost equally non-effected whether they took the drug or not. 
+
+
+```{r}
+DataH=filter(FinalData,LGBTQ=="straight")
+barchartGC(~infected + treatment,data=DataH)
+barchartGC(~infected + treatment,data=DataH, type="percent", main="straight")
+
+```
+
+In the frequency bar chart above it appears that those who were straight and had COVID, and took the drug were less effected than those who didn't take the drug.  Those who did not have the virus, it appears that there wasn't a significant effect on whether or not they took the drug or not. 
+
+Similarly, when we observe the bar chart in percentages, those who were straight and had the virus and took the drug were less likely to get the virus than those who did take the drug.  Those who didn't have the virus, whether they took the drug or not, did not show a significant effect either way. 
+
+```{r}
+DataH=filter(FinalData,LGBTQ=="gay")
+barchartGC(~infected + treatment,data=DataH)
+barchartGC(~infected + treatment,data=DataH, type="percent", main="gay")
+
+```
+
+In the above frequency bar chart, we observe that those who were gay and got the virus, were more likely to be effected when taking the drug than those who didn't take the drug.  Those who didn't contract the virus and were gay, appear to have no significant effect whether taking the drug or not.
+
+Similarly, in the percentage bar chart, those who were gay and took the drug were significantly more effected with the virus when taking the drug than those who didn't take the drug, and those who were not effected showed no significant difference whether taking the drug or not.  
+
+```{r}
+DataU=filter(FinalData,DrugUser=="yes")
+barchartGC(~infected + treatment,data=DataU)
+barchartGC(~infected + treatment,data=DataU, type="percent", main="Yes")
+
+```
+
+In the frequency bar chart above, we observe that those who were drug users and did receive the vaccine, appear to be less effected than those who didn't receive the drug, and those who didn't contract the virus, whether they took the drug or not, showed no significant difference.  
+
+Similarly, when we observe the percentage bar chart above, it appears that those drug users who contracted the virus and took the vaccine were less likely to contract the virus than those who didn't take the vaccine.  Those who didn't contract the virus showed no apparent difference between those who took the vaccine and those who didn't and were drug users. 
+
+
+```{r}
+DataU=filter(FinalData,DrugUser=="no")
+barchartGC(~infected + treatment,data=DataU)
+barchartGC(~infected + treatment,data=DataU, type="percent", main="no")
+
+```
+
+In the above frequency bar chart, it appears that those who are not drug users and have contracted the virus, were less likely to get the virus if they took the drug than those who didn't take the drug.  Those who didn't contract the virus showed no significant difference whether they took the drug or not.  
+
+Similarly it appears that in the above percentage bar chart, that those who had the virus who are not drug users and took the vaccine were less likely to contract the virus than those who didn't take the vaccine.  Those who did not have the virus showed no significant difference whether they took the vaccine or not.  
 
 
 # Discussion and Conclusion
