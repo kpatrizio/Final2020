@@ -18,7 +18,7 @@ FinalData <- OldData %>% mutate(infected = recode(infected, aids = "covid", none
 
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?.  If you skimp in this section expect to be marked down in your grade. Paint a picture of the project a couple of paragraphs is expected!-->
 
-A new  preventative vaccine (covid91) is under test in clinical trials. Given the nature of this vaccine it is suspected that the drug may exhibit different effectiveness across the variety of subpopulations tracked. Consider population subgroups by gender( guys and gals), drug use, and sexual orientation. Write a complete report that separately considers this drug for each subgroup and your recommendations as to whether people in the subgroup should take the vaccine.
+A new  preventative vaccine (covid91) is under test in clinical trials. Given the nature of this vaccine it is suspected that the drug may exhibit different effectiveness across the variety of sub-populations tracked. Consider population subgroups by gender( guys and gals), drug use, and sexual orientation. Write a complete report that separately considers this drug for each subgroup and your recommendations as to whether people in the subgroup should take the vaccine.
 
 $H_0$ The Null Hypothesis is that among the target population in each following data, the vaccine has no effect on whether one contracts the virus or not.
 
@@ -26,13 +26,15 @@ $H_A$ The Alternative Hypothesis is that among the target population in each of 
 
 # Methods
 
-<!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method. Discuss what data manipulations may be needed for example subsetting or other binning procedures and what sort of graphical displays and inferential tools will be used!-->
+<!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method. Discuss what data manipulations may be needed for example sub-setting or other binning procedures and what sort of graphical displays and inferential tools will be used!-->
 
-Every question is of a Cat~cat type.  
+Every question is of a Cat~Cat type.  
 
 # Results
 
-<!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
+<!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->  
+
+###Plot barplots
 
 
 ```{r}
@@ -103,7 +105,52 @@ In the above frequency bar chart, it appears that those who are not drug users a
 
 Similarly it appears that in the above percentage bar chart, that those who had the virus who are not drug users and took the vaccine were less likely to contract the virus than those who didn't take the vaccine.  Those who did not have the virus showed no significant difference whether they took the vaccine or not.  
 
+###Numerical Summaries
+
+
+```{r}
+table1 <- xtabs(~infected + treatment,data=DataF)
+rowPerc(table1)
+colPerc(table1)
+```
+
+According to the Cross tab table in rows above for females, out of those who were infected with COVID, 33% took the drug and 67% didn't.  Out of those who were not infected, there appears to be no significant difference in whether they took the vaccine or not. 
+
+According to the Cross tab table in columns above for females, out of those who took the drug 4% contracted the virus and 96% didn't.  Out of those who didn't take the drug, 9% contracted the virus and 91% didn't.
+
+
+```{r}
+table1 <- xtabs(~infected + treatment,data=DataM)
+rowPerc(table1)
+colPerc(table1)
+```
+
+According to the xtabs chart above the men who had contracted the virus after they took the vaccine were more likely to be infected than those who didn't and of those who didn't contract the virus and took the vaccine, were less likely to be infected by the virus than those who didn't take the vaccine.  When the study was completed, 3.72 percent of men who took the vaccine were infected by the virus and 96.28 percent who did take the vaccine were not infected by the virus. Overall, men who took the vaccine were infected more than those who didn't.
+
+
+```{r}
+table1 <- xtabs(~infected + treatment,data=DataH)
+rowPerc(table1)
+colPerc(table1)
+```
+
+In the xtabs chart above among the LGBQT community 70.69 percent of those who were infected by the virus, took the vaccine; a substantial difference to those who didn't take the vaccine.
+Those in the LGBQT community who took the vaccine 7.97 percent were infected with the virus and 3.36 percent were not infected that didn't take the vaccine.  Overall the vaccine was not as effective as those who didn't take the vaccine.    
+
+```{r}
+table1 <- xtabs(~infected + treatment,data=DataU)
+rowPerc(table1)
+colPerc(table1)
+```
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+
 
 # Discussion and Conclusion
 
-<!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+<!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variables causes the other, or whether they perhaps are related for some other reason.  Watch the chapter 6 videos from the George Town videos collection.!-->
