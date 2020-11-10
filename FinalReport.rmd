@@ -143,6 +143,9 @@ rowPerc(table1)
 colPerc(table1)
 ```
 
+According to the xtabs chart above, those who are drug users that were infected by the virus 43.29 percent took the vaccine and 56.71 percent who did not take the vaccine, were infected. Out of 4.1 percent of drug users who took the vaccine and were infected, 95.9 percent who also took the vaccine were not infected. Overall, drug users infected were less likely to be infected than those who didnt take the vaccine.  However, it appears that there is not a significant difference between those who took the vaccine and those who didn't.  
+
+
 ```{r}
 chisq.test(table1)
 chisqtestGC(table1)
@@ -154,3 +157,5 @@ fisher.test(table1)
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variables causes the other, or whether they perhaps are related for some other reason.  Watch the chapter 6 videos from the George Town videos collection.!-->
+
+
