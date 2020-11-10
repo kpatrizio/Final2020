@@ -120,21 +120,22 @@ According to the Cross tab table in columns above for females, out of those who 
 
 
 ```{r}
-table1 <- xtabs(~infected + treatment,data=DataM)
-rowPerc(table1)
-colPerc(table1)
+table2 <- xtabs(~infected + treatment,data=DataM)
+rowPerc(table2)
+colPerc(table2)
 ```
 
 According to the xtabs chart above the men who had contracted the virus after they took the vaccine were more likely to be infected than those who didn't and of those who didn't contract the virus and took the vaccine, were less likely to be infected by the virus than those who didn't take the vaccine.  When the study was completed, 3.72 percent of men who took the vaccine were infected by the virus and 96.28 percent who did take the vaccine were not infected by the virus. Overall, men who took the vaccine were infected more than those who didn't.
 
 
 ```{r}
-table1 <- xtabs(~infected + treatment,data=DataH)
-rowPerc(table1)
-colPerc(table1)
+table3 <- xtabs(~infected + treatment,data=DataH)
+rowPerc(table3)
+colPerc(table3)
 ```
 
 In the xtabs chart above among the LGBQT community 70.69 percent of those who were infected by the virus, took the vaccine; a substantial difference to those who didn't take the vaccine.
+
 Those in the LGBQT community who took the vaccine 7.97 percent were infected with the virus and 3.36 percent were not infected that didn't take the vaccine.  Overall the vaccine was not as effective as those who didn't take the vaccine.    
 
 ```{r}
@@ -148,10 +149,12 @@ According to the xtabs chart above, those who are drug users that were infected 
 
 ```{r}
 chisq.test(table1)
+data=DataF
 chisqtestGC(table1)
 fisher.test(table1)
 ```
 
+The above Chi-Square Statistic Chart shows an overall P-value of approx. .000000000005 which is below the 0.05 and true odds ratio is not equal to 1 making it impossible to prove a non relation to the targeted sets of data ran above.
 
 
 # Discussion and Conclusion
