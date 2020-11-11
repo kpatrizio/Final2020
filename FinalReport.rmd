@@ -134,24 +134,11 @@ chisqtestGC(table1)
 fisher.test(table1)
 ```
 
+In the above frequency and percentage bar charts, it appears that 71 percent of those who were gay and got the vaccine, contracted the virus, making them more likely to be infected than those who didn't take the drug and at a much lower rate of 30 percent.  Those who didn't contract the virus appear to have no significant difference whether taking the drug or not.
 
-
-
-
-
-
-
-
-```{r}
-DataH=filter(FinalData,LGBTQ=="gay")
-barchartGC(~infected + treatment,data=DataH)
-barchartGC(~infected + treatment,data=DataH, type="percent", main="gay")
-
-```
-
-In the above frequency bar chart, we observe that those who were gay and got the virus, were more likely to be effected when taking the drug than those who didn't take the drug.  Those who didn't contract the virus and were gay, appear to have no significant effect whether taking the drug or not.
-
-Similarly, in the percentage bar chart, those who were gay and took the drug were significantly more effected with the virus when taking the drug than those who didn't take the drug, and those who were not effected showed no significant difference whether taking the drug or not.  
+According to the x-tabs chart above among the LGBQT community 70.7 percent who contracted the virus took the vaccine and 29.3 percent didn't.  Those from our count data just under 8 percent who took the vaccine were infected by the virus, the other 3.4 percent didnt take the vaccine and also contracted the virus.  it appears that twice as many who took the vaccine contracted the virus than those who didnt take the vaccine.  it appears the vaccine is not effective among gays. 
+   
+As we take a look at the Fisher Exact Test, we can see similar results with a probability ratio of 2.5 percent of gays contracting the virus.  as many times that this teswt is conduct6ed 95 percent of the time there is anywhere from 1.6 to 3.9 percent chance of contracting the virus if your gay and take the vaccine. 
 
 # Plot Barplots For Drug Users
 
@@ -171,65 +158,20 @@ colPerc(table1)
 
 ### Inferential For Drug Users
 
-
 ```{r}
 chisq.test(table1)
 chisqtestGC(table1)
 fisher.test(table1)
 ```
 
-In the frequency bar chart above, we observe that those who were drug users and did receive the vaccine, appear to be less effected than those who didn't receive the drug, and those who didn't contract the virus, whether they took the drug or not, showed no significant difference.  
+In the frequency and percentage bar charts above, it appears that those who were drug users and did receive the vaccine, were less effected than those who didn't receive the drug. At 33.3 percent who contracted the virus, took the vaccine; 66.7 percent didn't. Those who didn't contract the virus, whether they took the drug or not, showed no significant difference.  
 
-Similarly, when we observe the percentage bar chart above, it appears that those drug users who contracted the virus and took the vaccine were less likely to contract the virus than those who didn't take the vaccine.  Those who didn't contract the virus showed no apparent difference between those who took the vaccine and those who didn't and were drug users. 
+Similarly, according to the x-tabs table above, out of those in our data, 33.3 percent who contracted the virus took the vaccine, and 66.7 didn't. The 3.6 percent in our count data who took the vaccine contracted the virus and 6.5 percent who didn't take the vaccine also contracted the virus. It appears that the vaccine is effective for drug users since twice as many drug users who didn't get the vaccine did contract the virus.
 
+The Fisher Exact Test appears to show that the vaccine is effective among drug users at a probability of getting the virus ratio of 0.5 chance.  as many times as this test is conducted, 95 percent of the time a ratio of 0.4 to 0.8 will contract the virus.   
+ 
+ 
 
-
-  
-
-
-
-
-According to the Cross tab table in columns above for females, out of those who took the drug 4% contracted the virus and 96% didn't.  Out of those who didn't take the drug, 9% contracted the virus and 91% didn't.
-
-
-
-
-
-
-
-
-```{r}
-DataH=filter(FinalData,LGBTQ=="straight")
-barchartGC(~infected + treatment,data=DataH)
-barchartGC(~infected + treatment,data=DataH, type="percent", main="straight")
-
-```
-
-
-
-
-
-```{r}
-table3 <- xtabs(~infected + treatment,data=DataH)
-rowPerc(table3)
-colPerc(table3)
-```
-
-In the xtabs chart above among the LGBQT community 70.69 percent of those who were infected by the virus, took the vaccine; a substantial difference to those who didn't take the vaccine.
-
-Those in the LGBQT community who took the vaccine 7.97 percent were infected with the virus and 3.36 percent were not infected that didn't take the vaccine.  Overall the vaccine was not as effective as those who didn't take the vaccine.    
-
-```{r}
-table1 <- xtabs(~infected + treatment,data=DataU)
-rowPerc(table1)
-colPerc(table1)
-```
-
-According to the xtabs chart above, those who are drug users that were infected by the virus 43.29 percent took the vaccine and 56.71 percent who did not take the vaccine, were infected. Out of 4.1 percent of drug users who took the vaccine and were infected, 95.9 percent who also took the vaccine were not infected. Overall, drug users infected were less likely to be infected than those who didnt take the vaccine.  However, it appears that there is not a significant difference between those who took the vaccine and those who didn't.  
-
-
-
-The above Chi-Square Statistic Chart shows an overall P-value of approx. .000000000005 which is below the 0.05 and true odds ratio is not equal to 1 making it impossible to prove a non relation to the targeted sets of data ran above.
 
 
 # Discussion and Conclusion
