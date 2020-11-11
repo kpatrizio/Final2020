@@ -44,10 +44,6 @@ barchartGC(~infected + treatment,data=DataF, type="percent", main="gals")
 
 ```
 
-In the frequency bar chart above, titled gals, it appears that the females who had COVID those who took the drug were less effected with the virus, than those females who did not take the drug.  Those who did not have COVID appear to not be effected whether they took the drugh or didn't take the drug. 
-
-As we observe the percentage bar chart above, titled gals, it appears that similar to the frequency chart, that those females who had the virus, the females who took the drug were less effected than those who didn't take the drug and those females who didn't have the drug.
-
 ### Numerical Summaries For Gals
 
 ```{r}
@@ -55,8 +51,6 @@ table1 <- xtabs(~infected + treatment,data=DataF)
 rowPerc(table1)
 colPerc(table1)
 ```
-
-According to the Cross tab table in rows above for females, out of those who were infected with COVID, 33% took the drug and 67% didn't.  Out of those who were not infected, there appears to be no significant difference in whether they took the vaccine or not. 
 
 ### Inferential For Gals
 
@@ -66,6 +60,18 @@ chisq.test(table1)
 chisqtestGC(table1)
 fisher.test(table1)
 ```
+
+In the observation of the frequency bar chart above for gals, it appears that the females by count who contracted COVID those who took the vaccine were less likely to be infected with the virus, than those females who did not take the vaccine.  Those who did not have COVID appear to not be effected whether they took the drug or didn't take the drug. 
+
+As we observe the percentage bar chart above, for gals, it appears that similar to the frequency chart,  less than 35 percent of females who took the vaccine were infected while twice as many females who didn't take the vaccine did contract the virus at approx 66 percent. It appears that the drug was effective for the gals.
+
+
+According to the x-tab table in rows above for females, out of those who were infected with COVID, 33.1 percent took the vaccine and 66.9 percent didn't.  Out of those who were not infected, there appears to be no significant difference in whether they took the vaccine or not.
+
+When we observe by count in the columns chart, it appears out of 100 tested 4.4 percent who took the vaccine were infected which is less than half of those who took the Placebo and were 8.7 percent infected.
+
+Lastly when we observe the odds of getting the virus in the Fisher Exact Test as a female, it it appears to be a less than 50 percent chance of getting the virus if you take the vaccine.  It also appears that 95 percent of the times that we run the Fisher Exact test we will get a result in the range of 0.5 to 0.6 percent chance of getting the virus. So, overall it appears that the drug is effective for the gals.
+
 
 # Plot Barplots For Guys
 
@@ -94,6 +100,13 @@ chisqtestGC(table1)
 fisher.test(table1)
 ```
 
+
+In the above frequency and percentage bar charts for guys, it appears that the guys who had been infected with COVID and took the drug were effected more than those males who did not take the drug. We also observe that those males who did not have the virus who did or did not take the drug were almost equally non-effected.  
+
+Additionally, according to the x-tabs chart above, the men who had contracted the virus after they took the vaccine were 58.2 percent
+more likely to be infected than the 41.8 percent of those who didn't and contracted the virus... Of the 3.7 percent who took the vaccine and contracted the virus, 2.6 percent didn't take the vaccine and contracted the virus. Of those who didnt contract the virus, there was no significant difference whether the took the vaccine or not! Overall, men who took the vaccine were infected more than those who didn't and it would appear that the vaccine was not effective for the guys.
+
+When we observe the Fisher Exact Test above it appears that the odds of getting the virus if you take the vaccine is probable at a ratio of 1.5 percent.  As many times as the test is run 95 percent of the time the results would run from 1.2 to 1.8 ratio.
 
 # Plot Barplots For LGBTQ
 
@@ -124,16 +137,10 @@ fisher.test(table1)
 
 
 
-In the above frequency bar chart, for guys, it appears that the males who had COVID and took the drug were effected more than those males who did not take the drug. We also observe that those males who did not have the virus who did or did not take the drug were equally almost equally non-effected.  
-
-Likewise when we observe the bar chart by percentage above for guys, it appears that those males who had the virus and took the drug were more effected with the Virus than those who didn't take the drug, and those who didn't have the virus, were almost equally non-effected whether they took the drug or not. 
 
 
 
 
-In the frequency bar chart above it appears that those who were straight and had COVID, and took the drug were less effected than those who didn't take the drug.  Those who did not have the virus, it appears that there wasn't a significant effect on whether or not they took the drug or not. 
-
-Similarly, when we observe the bar chart in percentages, those who were straight and had the virus and took the drug were less likely to get the virus than those who did take the drug.  Those who didn't have the virus, whether they took the drug or not, did not show a significant effect either way. 
 
 ```{r}
 DataH=filter(FinalData,LGBTQ=="gay")
@@ -200,7 +207,6 @@ barchartGC(~infected + treatment,data=DataH, type="percent", main="straight")
 
 
 
-According to the xtabs chart above the men who had contracted the virus after they took the vaccine were more likely to be infected than those who didn't and of those who didn't contract the virus and took the vaccine, were less likely to be infected by the virus than those who didn't take the vaccine.  When the study was completed, 3.72 percent of men who took the vaccine were infected by the virus and 96.28 percent who did take the vaccine were not infected by the virus. Overall, men who took the vaccine were infected more than those who didn't.
 
 
 ```{r}
