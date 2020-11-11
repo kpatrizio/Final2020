@@ -34,14 +34,12 @@ Every question is of a Cat~Cat type.
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->  
 
-# Plot barplots for Gals
-
+# Plot Barplots for Gals
 
 ```{r}
 DataF=filter(FinalData,sex=="gal")
 barchartGC(~infected + treatment,data=DataF)
 barchartGC(~infected + treatment,data=DataF, type="percent", main="gals")
-
 ```
 
 ### Numerical Summaries For Gals
@@ -54,17 +52,13 @@ colPerc(table1)
 
 ### Inferential For Gals
 
-
 ```{r}
 chisq.test(table1)
 chisqtestGC(table1)
 fisher.test(table1)
 ```
 
-In the observation of the frequency bar chart above for gals, it appears that the females by count who contracted COVID those who took the vaccine were less likely to be infected with the virus, than those females who did not take the vaccine.  Those who did not have COVID appear to not be effected whether they took the drug or didn't take the drug. 
-
-As we observe the percentage bar chart above, for gals, it appears that similar to the frequency chart,  less than 35 percent of females who took the vaccine were infected while twice as many females who didn't take the vaccine did contract the virus at approx 66 percent. It appears that the drug was effective for the gals.
-
+In the frequency and percentage bar charts above for gals, it appears that the females by count who contracted COVID and took the vaccine were less likely to be infected with the virus, than those females who did not take the vaccine.  Less than 35 percent of females who took the vaccine were infected while twice as many females who didn't take the vaccine did contract the virus at approx 66 percent. It appears that the drug was effective for the gals.  Those who did not have the virus appear to show no significant effect whether they took the drug or didn't take the drug. 
 
 According to the x-tab table in rows above for females, out of those who were infected with COVID, 33.1 percent took the vaccine and 66.9 percent didn't.  Out of those who were not infected, there appears to be no significant difference in whether they took the vaccine or not.
 
@@ -72,15 +66,12 @@ When we observe by count in the columns chart, it appears out of 100 tested 4.4 
 
 Lastly when we observe the odds of getting the virus in the Fisher Exact Test as a female, it it appears to be a less than 50 percent chance of getting the virus if you take the vaccine.  It also appears that 95 percent of the times that we run the Fisher Exact test we will get a result in the range of 0.5 to 0.6 percent chance of getting the virus. So, overall it appears that the drug is effective for the gals.
 
-
 # Plot Barplots For Guys
-
 
 ```{r}
 DataM=filter(FinalData,sex=="guy")
 barchartGC(~infected + treatment,data=DataM)
 barchartGC(~infected + treatment,data=DataM, type="percent", main="guys")
-
 ```
 
 ### Numerical Summaries For Guys
@@ -93,13 +84,11 @@ colPerc(table1)
 
 ### Inferential For Guys
 
-
 ```{r}
 chisq.test(table1)
 chisqtestGC(table1)
 fisher.test(table1)
 ```
-
 
 In the above frequency and percentage bar charts for guys, it appears that the guys who had been infected with COVID and took the drug were effected more than those males who did not take the drug. We also observe that those males who did not have the virus who did or did not take the drug were almost equally non-effected.  
 
@@ -178,12 +167,14 @@ The Fisher Exact Test appears to show that the vaccine is effective among drug u
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variables causes the other, or whether they perhaps are related for some other reason.  Watch the chapter 6 videos from the George Town videos collection.!-->  
 
-In conclusion, we reject the null Hypothesis that among the target population in each following data, the vaccine has no effect on whether one contracts the virus or not in favor of the alternative hypothesis that among the target population in each of the following sets of data, the vaccine does have an effect on whether one contracts the virus or not.  
+In conclusion, we reject the NULL Hypothesis that among the target population for "gals" and "drug users" in the above sets of data, that the vaccine has no effect on whether one contracts the virus or not, in favor of the ALTERNATIVE hypothesis that among the target population for "gals" and "drug users" in the above sets of data, the vaccine does have an effect on whether one contracts the virus or not. 
 
-It appears that between genders, women were less likely to contract the virus when taking the virus than men. 
+In the case of the "guys" and the "gays" we fail to reject the NULL hypothesis for lack of significant evidence that the vaccine would have a positive effect!
+
+It appears that between genders, women were less likely to contract the virus when taking the vaccine than men. 
 
 It appears that gays were more likely to contract the virus than straights when taking the vaccine.  
 
-Lastly it appears that drug users were more likely to contract the virus than non-drug users when taking the vaccine.
+Lastly, it appears that drug users were less likely to contract the virus than non-drug users when taking the vaccine.
 
 Overall, we can conclude that among the sub-populations whether taking the vaccine or not taking the vaccine can have a negative or positive effect in relation to their sub-groups such as the above sub-groups between genders, and various lifestyles.
