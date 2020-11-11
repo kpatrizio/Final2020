@@ -34,7 +34,7 @@ Every question is of a Cat~Cat type.
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->  
 
-###Plot barplots
+# Plot barplots for Gals
 
 
 ```{r}
@@ -48,6 +48,28 @@ In the frequency bar chart above, titled gals, it appears that the females who h
 
 As we observe the percentage bar chart above, titled gals, it appears that similar to the frequency chart, that those females who had the virus, the females who took the drug were less effected than those who didn't take the drug and those females who didn't have the drug.
 
+### Numerical Summaries For Gals
+
+```{r}
+table1 <- xtabs(~infected + treatment,data=DataF)
+rowPerc(table1)
+colPerc(table1)
+```
+
+According to the Cross tab table in rows above for females, out of those who were infected with COVID, 33% took the drug and 67% didn't.  Out of those who were not infected, there appears to be no significant difference in whether they took the vaccine or not. 
+
+### Inferential For Gals
+
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+# Plot Barplots For Guys
+
+
 ```{r}
 DataM=filter(FinalData,sex=="guy")
 barchartGC(~infected + treatment,data=DataM)
@@ -55,17 +77,59 @@ barchartGC(~infected + treatment,data=DataM, type="percent", main="guys")
 
 ```
 
+### Numerical Summaries For Guys
+
+```{r}
+table1 <- xtabs(~infected + treatment,data=DataM)
+rowPerc(table1)
+colPerc(table1)
+```
+
+### Inferential For Guys
+
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+
+# Plot Barplots For LGBTQ
+
+```{r}
+DataH=filter(FinalData,LGBTQ=="gay")
+barchartGC(~infected + treatment,data=DataH)
+barchartGC(~infected + treatment,data=DataH, type="percent", main="gay")
+```
+
+
+### Numerical Summaries For LGBTQ
+
+```{r}
+table1 <- xtabs(~infected + treatment,data=DataH)
+rowPerc(table1)
+colPerc(table1)
+```
+
+### Inferential For LGBTQ
+
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+
+
+
 In the above frequency bar chart, for guys, it appears that the males who had COVID and took the drug were effected more than those males who did not take the drug. We also observe that those males who did not have the virus who did or did not take the drug were equally almost equally non-effected.  
 
 Likewise when we observe the bar chart by percentage above for guys, it appears that those males who had the virus and took the drug were more effected with the Virus than those who didn't take the drug, and those who didn't have the virus, were almost equally non-effected whether they took the drug or not. 
 
 
-```{r}
-DataH=filter(FinalData,LGBTQ=="straight")
-barchartGC(~infected + treatment,data=DataH)
-barchartGC(~infected + treatment,data=DataH, type="percent", main="straight")
 
-```
 
 In the frequency bar chart above it appears that those who were straight and had COVID, and took the drug were less effected than those who didn't take the drug.  Those who did not have the virus, it appears that there wasn't a significant effect on whether or not they took the drug or not. 
 
@@ -82,11 +146,29 @@ In the above frequency bar chart, we observe that those who were gay and got the
 
 Similarly, in the percentage bar chart, those who were gay and took the drug were significantly more effected with the virus when taking the drug than those who didn't take the drug, and those who were not effected showed no significant difference whether taking the drug or not.  
 
+# Plot Barplots For Drug Users
+
 ```{r}
 DataU=filter(FinalData,DrugUser=="yes")
 barchartGC(~infected + treatment,data=DataU)
 barchartGC(~infected + treatment,data=DataU, type="percent", main="Yes")
+```
 
+### Numerical Summaries For Drug Users
+
+```{r}
+table1 <- xtabs(~infected + treatment,data=DataU)
+rowPerc(table1)
+colPerc(table1)
+```
+
+### Inferential For Drug Users
+
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
 ```
 
 In the frequency bar chart above, we observe that those who were drug users and did receive the vaccine, appear to be less effected than those who didn't receive the drug, and those who didn't contract the virus, whether they took the drug or not, showed no significant difference.  
@@ -94,36 +176,29 @@ In the frequency bar chart above, we observe that those who were drug users and 
 Similarly, when we observe the percentage bar chart above, it appears that those drug users who contracted the virus and took the vaccine were less likely to contract the virus than those who didn't take the vaccine.  Those who didn't contract the virus showed no apparent difference between those who took the vaccine and those who didn't and were drug users. 
 
 
-```{r}
-DataU=filter(FinalData,DrugUser=="no")
-barchartGC(~infected + treatment,data=DataU)
-barchartGC(~infected + treatment,data=DataU, type="percent", main="no")
 
-```
-
-In the above frequency bar chart, it appears that those who are not drug users and have contracted the virus, were less likely to get the virus if they took the drug than those who didn't take the drug.  Those who didn't contract the virus showed no significant difference whether they took the drug or not.  
-
-Similarly it appears that in the above percentage bar chart, that those who had the virus who are not drug users and took the vaccine were less likely to contract the virus than those who didn't take the vaccine.  Those who did not have the virus showed no significant difference whether they took the vaccine or not.  
-
-###Numerical Summaries
+  
 
 
-```{r}
-table1 <- xtabs(~infected + treatment,data=DataF)
-rowPerc(table1)
-colPerc(table1)
-```
 
-According to the Cross tab table in rows above for females, out of those who were infected with COVID, 33% took the drug and 67% didn't.  Out of those who were not infected, there appears to be no significant difference in whether they took the vaccine or not. 
 
 According to the Cross tab table in columns above for females, out of those who took the drug 4% contracted the virus and 96% didn't.  Out of those who didn't take the drug, 9% contracted the virus and 91% didn't.
 
 
+
+
+
+
+
+
 ```{r}
-table2 <- xtabs(~infected + treatment,data=DataM)
-rowPerc(table2)
-colPerc(table2)
+DataH=filter(FinalData,LGBTQ=="straight")
+barchartGC(~infected + treatment,data=DataH)
+barchartGC(~infected + treatment,data=DataH, type="percent", main="straight")
+
 ```
+
+
 
 According to the xtabs chart above the men who had contracted the virus after they took the vaccine were more likely to be infected than those who didn't and of those who didn't contract the virus and took the vaccine, were less likely to be infected by the virus than those who didn't take the vaccine.  When the study was completed, 3.72 percent of men who took the vaccine were infected by the virus and 96.28 percent who did take the vaccine were not infected by the virus. Overall, men who took the vaccine were infected more than those who didn't.
 
@@ -147,12 +222,6 @@ colPerc(table1)
 According to the xtabs chart above, those who are drug users that were infected by the virus 43.29 percent took the vaccine and 56.71 percent who did not take the vaccine, were infected. Out of 4.1 percent of drug users who took the vaccine and were infected, 95.9 percent who also took the vaccine were not infected. Overall, drug users infected were less likely to be infected than those who didnt take the vaccine.  However, it appears that there is not a significant difference between those who took the vaccine and those who didn't.  
 
 
-```{r}
-chisq.test(table1)
-data=DataF
-chisqtestGC(table1)
-fisher.test(table1)
-```
 
 The above Chi-Square Statistic Chart shows an overall P-value of approx. .000000000005 which is below the 0.05 and true odds ratio is not equal to 1 making it impossible to prove a non relation to the targeted sets of data ran above.
 
